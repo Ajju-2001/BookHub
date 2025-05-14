@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+	margin: 0;
+	padding: 0;
+}
+
+.register-form {
+	width: 400px;
+	margin: 50px auto;
+	padding: 30px;
+	background-color: #fff;
+	box-shadow: 0 0 10px #ccc;
+	border-radius: 8px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+	width: 100%;
+	padding: 10px;
+	margin: 8px 0;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+	padding: 10px;
+	width: 100%;
+	background-color: #4285f4;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #3367d6;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+p {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.error {
+	color: red;
+	font-size: 0.9em;
+}
+</style>
+</head>
+<body>
+	<div class="register-form">
+		<h2>Register</h2>
+
+		<form action="register" method="post">
+			<label for="username">Username</label> <input type="text"
+				id="username" name="username" placeholder="Username"
+				value="" required />
+		
+
+			<label for="password">Password</label> <input type="password"
+				id="password" name="password" placeholder="Password"
+				value="" required /> <label for="gmail">Email</label>
+			<input type="email" id="gmail" name="gmail" placeholder="Email"
+				value="" required
+				pattern="^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$" />
+
+			<label for="phoneNumber">Phone Number</label> <input type="text"
+				id="phoneNumber" name="phoneNumber" placeholder="Phone Number"
+				value="" required pattern="^\d{10}$" />
+
+			<input type="submit" value="Register" />
+		</form>
+		<p>
+			Already registered? <a href="login">Login here</a>
+		</p>
+	</div>
+</body>
+</html>

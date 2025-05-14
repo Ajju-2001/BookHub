@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background: #f2f2f2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.login-container {
+	background: white;
+	padding: 40px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+}
+
+.login-container h2 {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+.error-message {
+	color: red;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.btn {
+	width: 100%;
+	background: green;
+	border: none;
+	color: white;
+	padding: 12px; 
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.btn:hover {
+	background: #0056b3;
+}
+
+.register-link {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.register-link a {
+	color: #007BFF;
+	text-decoration: none;
+}
+
+.register-link a:hover {
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+	<div class="login-container">
+		<h2>Login</h2>
+
+		<div th:if="${error}" class="error-message" th:text="${error}"></div>
+
+		<form th:action="@{/login}" th:object="${loginDto}" method="post">
+			<div class="form-group">
+				<label>Username</label> <input type="text" th:field="*{username}"
+					placeholder="Enter username" required />
+			</div>
+
+			<div class="form-group">
+				<label>Password</label> <input type="password"
+					th:field="*{password}" placeholder="Enter password" required />
+			</div>
+
+			<button type="submit" class="btn">Login</button>
+		</form>
+
+		<div class="register-link">
+			<p>
+				New user? <a th:href="@{/register}">Register here</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>
